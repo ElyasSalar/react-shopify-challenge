@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Search({ keyword, dispatch }){
+function Search({keyword, dispatch}){
   return (
     <div>
       <h1>Search</h1>

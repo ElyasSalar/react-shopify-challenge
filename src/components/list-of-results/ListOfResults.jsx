@@ -1,12 +1,11 @@
-import { useEffect, memo } from 'react';
+import {memo} from 'react';
 import useFetch from '../../hooks/useFetch';
-import ResultLabel from '../result-label/result.label.component';
+import ResultLabel from '../result-label/ResultLabel';
 
-function ListOfResults({ keyword }){
+function ListOfResults({keyword}){
 
   const [data, isLoading] = useFetch(keyword);
   
-  console.log(data)
   if(isLoading) return <div>Loading...</div>;
   return (
     <div>
