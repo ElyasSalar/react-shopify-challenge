@@ -4,6 +4,7 @@ export const ACTIONS = {
   MOVIES: 'MOVIES',
   NOMINATED: 'NOMINATED',
   REMOVE_NOMINATE: 'REMOVE',
+  SEARCH: 'SEARCH',
 };
 const initialState = {
   movies: [],
@@ -13,7 +14,7 @@ const initialState = {
 };
 function reducer(state, action) {
   switch (action.type) {
-    case 'search':
+    case ACTIONS.SEARCH:
       return { ...state, searchValue: action.payload };
 
     case ACTIONS.MOVIES:
