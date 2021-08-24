@@ -6,13 +6,13 @@ function ListOfResults({keyword}){
 
   const [data, isLoading] = useFetch(keyword);
   
-                  if(isLoading) return <div>Loading...</div>;
-                  return (
-                    <div>
-                      {
-                        data.map(({Title, Year, Poster, imdbID}) => <ResultLabel key={imdbID} title={Title} year={Year} poster={Poster} />)
-                      }
-                    </div>
+  if(isLoading) return <div>Loading...</div>;
+  return (
+    <div>
+      {
+        data.map(({Title, Year, Poster, imdbID}) => <ResultLabel key={imdbID} title={Title} year={Year} poster={Poster} />)
+      }
+    </div>
   )
 }
 
