@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+
+
 const useFetch = (keyword) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -25,8 +27,11 @@ const useFetch = (keyword) => {
     } catch (error) {
       setError(error.message);
     }
+
     setIsLoading(false);
   }
   return [ data, isLoading, error ];
 };
+
+
 export default useFetch;
