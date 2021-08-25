@@ -9,7 +9,6 @@ export const ACTIONS = {
 const initialState = {
   movies: [],
   searchValue: '',
-  searchType: '',
   nominates: [],
 };
 function reducer(state, action) {
