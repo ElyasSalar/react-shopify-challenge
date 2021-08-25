@@ -8,6 +8,8 @@ const useFetch = (url, param) => {
     fetchData();
   }, [url]);
   function fetchData() {
+    setIsLoading(true);
+    setError(null);
     axios
       .get(url, {
         params: param,
