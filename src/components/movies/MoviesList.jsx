@@ -9,6 +9,15 @@ function MoviesList() {
     `https://www.omdbapi.com/?s=${moviesState.searchValue}&apikey=18415e4d`,
     searchValue
   );
+  function onNominate(id) {
+    const mov = movies.find((movie) => {
+      return movie.imdbID === id;
+    });
+    dispatchMovies({
+      type: ACTIONS.NOMINATED,
+      payload: mov,
+    });
+  }
   useEffect(() => {
     //check if we have the search results
     if (data.Search)
@@ -29,12 +38,15 @@ function MoviesList() {
 
   if (isLoading) return <h1>Loading</h1>;
   if (error) return <h1>{error}</h1>;
+  if (movies.length < 1 && searchValue !== '') return <h1>No Results</h1>;
 
   return (
     <div>
       <ul>
         {movies.slice(0, 3).map((movie) => {
-          return <Movie key={movie.imdbID} movie={movie} />;
+          return (
+            <Movie onNominate={onNominate} key={movie.imdbID} movie={movie} />
+          );
         })}
       </ul>
     </div>
