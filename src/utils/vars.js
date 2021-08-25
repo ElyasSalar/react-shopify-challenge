@@ -1,4 +1,5 @@
 export const initalValue = {
   keyword: '',
-  listOfResults: []
+  listOfResults: [],
+  typeOfCinema: 'movies',
 };

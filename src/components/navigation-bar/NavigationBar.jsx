@@ -1,6 +1,7 @@
 import {Navbar, Dropdown, Form, FormControl} from 'react-bootstrap';
 
-function NavigationBar({keyword, dispatch}){
+function NavigationBar({keyword, dispatch, typeOfCinema}){
+  console.log(typeOfCinema)
   return(
     <>
       <Navbar bg="dark" expand="lg">
@@ -14,13 +15,17 @@ function NavigationBar({keyword, dispatch}){
               className="mr-2"
               aria-label="Search"
               value={keyword}
-              onChange={(event) => dispatch({type: 'keyword', newKeyword: event.target.value})} 
+              onChange={(event) => dispatch({type: 'keyword', newValue: event.target.value})} 
             />
-            <Dropdown className="d-inline mx-2" variant='dark'>
-              <Dropdown.Toggle id="dropdown-autoclose-true">Movies</Dropdown.Toggle>
+            <Dropdown
+            className="d-inline mx-2"
+            value={typeOfCinema}
+            onChange={(event) => dispatch({type: 'typeOfCinema', newValue: event.target.value})} // Error
+            >
+              <Dropdown.Toggle id="dropdown-autoclose-true">{typeOfCinema}</Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item>Movies</Dropdown.Item>
-                <Dropdown.Item>Series</Dropdown.Item>
+                <Dropdown.Item value='movies'>Movies</Dropdown.Item>
+                <Dropdown.Item value='series'>Series</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Form>
