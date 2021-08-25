@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import useFetch from '../../hooks/use-fetch';
 import moviesContext, { ACTIONS } from '../../store/moviesContext';
+
 import Movie from './Movie';
 function MoviesList() {
   const { moviesState, dispatchMovies } = useContext(moviesContext);
@@ -36,8 +37,8 @@ function MoviesList() {
     }
   }, [data.Search]);
 
-  if (isLoading) return <h1>Loading</h1>;
-  if (error) return <h1>{error}</h1>;
+  if (isLoading && searchValue !== '') return <h1>Loading</h1>;
+  if (error && searchValue !== '') return <h1>{error}</h1>;
   if (movies.length < 1 && searchValue !== '') return <h1>No Results</h1>;
 
   return (

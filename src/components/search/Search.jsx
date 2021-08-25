@@ -7,7 +7,7 @@ function Search() {
     setSearchValue(e.target.value);
     dispatchMovies({
       type: ACTIONS.SEARCH,
-      payload: e.target.value,
+      payload: e.target.value.trim(),
     });
   }
   const moviesOptions = moviesState.movies.filter((movie) => {

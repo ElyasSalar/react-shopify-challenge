@@ -18,7 +18,7 @@ function NominatesList() {
     //Render nominates only if there are nominated movies
     nominates.length > 0 && (
       <div>
-        <h1>NOMINATES</h1>
+        <h1>NOMINATIONS</h1>
         <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
           {nominates.map((movie) => {
             return (
