@@ -19,7 +19,7 @@ function NominatesList() {
     nominates.length > 0 && (
       <div>
         <h1>NOMINATES</h1>
-        <ul>
+        <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
           {nominates.map((movie) => {
             return (
               <NominatedMovie

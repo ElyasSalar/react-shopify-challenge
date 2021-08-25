@@ -8,14 +8,21 @@ function Movie({ movie, onNominate }) {
   });
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       <h3> {movie.Title} </h3>
       <h5> {movie.Year} </h5>
       <img src={movie.Poster} alt="" />
       {checkNominated.length < 1 ? (
-        <button onClick={() => onNominate(movie.imdbID)}>Nominate</button>
+        <button
+          style={{ padding: '1rem 2rem' }}
+          onClick={() => onNominate(movie.imdbID)}
+        >
+          Nominate
+        </button>
       ) : (
-        <button disabled>Nominated</button>
+        <button style={{ padding: '1rem 2rem' }} disabled>
+          Nominated
+        </button>
       )}
     </div>
   );

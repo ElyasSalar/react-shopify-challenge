@@ -42,7 +42,7 @@ function MoviesList() {
 
   return (
     <div>
-      <ul>
+      <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
         {movies.slice(0, 3).map((movie) => {
           return (
             <Movie onNominate={onNominate} key={movie.imdbID} movie={movie} />
