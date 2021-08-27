@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import moviesContext, { ACTIONS } from "../../store/moviesContext";
+import { Badge } from "react-bootstrap";
 
 function Movie({ movie }) {
   const { dispatchMovies, moviesState } = useContext(moviesContext);
@@ -24,7 +25,13 @@ function Movie({ movie }) {
         onClick={() => onNominate(movie)}
         disabled={isNominated}
       >
-        {isNominated ? "Nominated" : "Nominate"}
+        {isNominated ? (
+          <Badge pill bg="warning" text="dark">
+            Nominated
+          </Badge>
+        ) : (
+          "Nominate"
+        )}
       </button>
     </div>
   );
