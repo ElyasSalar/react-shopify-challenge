@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useContext } from "react";
+import Search from "./components/searchBar/Search";
+import MoviesList from "./components/movies/MoviesList";
+import NominatesList from "./components/movies/NominatesList";
+import moviesContext from "./store/moviesContext";
+import Modal from "./components/modal/Modal";
 
 function App() {
+  const { moviesState } = useContext(moviesContext);
+  const { nominates } = moviesState;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search />
+      <MoviesList />
+      <NominatesList />
+      {nominates.length === 5 && <Modal />}
     </div>
   );
 }
